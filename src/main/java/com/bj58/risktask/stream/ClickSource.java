@@ -1,4 +1,4 @@
-package com.bj58.risktask.test;
+package com.bj58.risktask.stream;
 
 /**
  * @author liweibo04 <liweibo04@58.com>

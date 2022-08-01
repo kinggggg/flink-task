@@ -1,8 +1,8 @@
-package com.bj58.risktask.test.window;
+package com.bj58.risktask.stream.window;
 
 
-import com.bj58.risktask.test.ClickSource;
-import com.bj58.risktask.test.Event;
+import com.bj58.risktask.stream.ClickSource;
+import com.bj58.risktask.stream.Event;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 
