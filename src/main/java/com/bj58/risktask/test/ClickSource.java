@@ -4,7 +4,6 @@ package com.bj58.risktask.test;
  * @author liweibo04 <liweibo04@58.com>
  * Created on 2022-08-01
  */
-import com.bj58.risktask.Event;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
 import java.util.Calendar;

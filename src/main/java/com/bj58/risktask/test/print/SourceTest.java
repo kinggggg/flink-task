@@ -1,6 +1,6 @@
 package com.bj58.risktask.test.print;
 
-import com.bj58.risktask.Event;
+import com.bj58.risktask.test.Event;
 import com.bj58.risktask.test.ClickSource;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;

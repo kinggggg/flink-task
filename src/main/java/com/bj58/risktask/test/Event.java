@@ -1,4 +1,4 @@
-package com.bj58.risktask;
+package com.bj58.risktask.test;
 
 import java.sql.Timestamp;
 
