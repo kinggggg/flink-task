@@ -42,11 +42,11 @@ public class UvCountByWindowExample {
 //        SingleOutputStreamOperator<String> process = stream.keyBy(data -> true)
 //                .window(TumblingEventTimeWindows.of(Time.seconds(10)))
 //                .process(new UvCountByWindow());
-        SingleOutputStreamOperator<String> process = getProcess(stream, 5, "五秒窗口");
+//        SingleOutputStreamOperator<String> process5 = getProcess(stream, 5, "五秒窗口");
         SingleOutputStreamOperator<String> process10 = getProcess(stream, 10, "十秒窗口");
 
         // 结果输出
-        process.print();
+//        process5.print();
         process10.print();
 
         StreamingFileSink<String> fileSink = StreamingFileSink
@@ -61,7 +61,7 @@ public class UvCountByWindowExample {
                 .build();
 
         // 结果写入文件
-        process.addSink(fileSink);
+//        process5.addSink(fileSink);
 
         env.execute();
     }
@@ -74,30 +74,5 @@ public class UvCountByWindowExample {
         return process;
     }
 
-    // 自定义窗口处理函数
-    public static class UvCountByWindow extends ProcessWindowFunction<Event, String, String, TimeWindow> {
-
-        private String name;
-
-        public UvCountByWindow() {}
-
-        public UvCountByWindow(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public void process(String key, Context context, Iterable<Event> elements, Collector<String> out) throws Exception {
-            HashSet<String> userSet = new HashSet<>();
-            // 遍历所有数据，放到Set里去重
-            for (Event event : elements) {
-                userSet.add(event.user);
-            }
-            // 结合窗口信息，包装输出内容
-            Long start = context.window().getStart();
-            Long end = context.window().getEnd();
-            out.collect("key " + key + "窗口: " + new Timestamp(start) + " ~ " + new Timestamp(end)
-                    + " 的独立访客数量是：" + userSet.size() + " ==========> " + name);
-        }
-    }
 }
 
